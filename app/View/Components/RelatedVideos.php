@@ -2,18 +2,20 @@
 
 namespace App\View\Components;
 
+use App\Models\Video;
 use Illuminate\View\Component;
 
 class RelatedVideos extends Component
 {
+    public $videos;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Video $video)
     {
-        //
+        $this->videos=$video->relatedVideos();
     }
 
     /**

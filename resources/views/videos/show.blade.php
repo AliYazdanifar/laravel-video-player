@@ -119,7 +119,7 @@
 
         <!-- Related Posts-->
         <div class="col-md-4">
-
+            <x-related-videos :video="$video"/>
         </div><!-- // col-md-4 -->
         <!-- // Related Posts -->
     </div><!-- // row -->

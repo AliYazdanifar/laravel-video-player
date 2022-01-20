@@ -33,4 +33,9 @@ class Video extends Model
         $verta = new Verta($value);
         return $verta->formatDifference();
     }
+
+    public function relatedVideos(int $count = 6)
+    {
+        return Video::all()->random($count);
+    }
 }
