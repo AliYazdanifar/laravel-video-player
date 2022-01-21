@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreVideoRequest;
+use App\Http\Requests\UpdateVideoRequest;
 use App\Models\Video;
 use Illuminate\Http\Request;
 
@@ -31,7 +32,7 @@ class VideoController extends Controller
         return view('videos.edit', compact('video'));
     }
 
-    public function update(Request $request,Video $video)
+    public function update(UpdateVideoRequest $request,Video $video)
     {
         $video->update($request->all());
         return redirect()->route('videos.show',$video->slug)->with('alert', __('messages.video_updated'));
