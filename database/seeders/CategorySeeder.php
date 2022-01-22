@@ -52,6 +52,5 @@ class CategorySeeder extends Seeder
                 'icon' => $details['icon']
             ]);
         }
-
     }
 }
