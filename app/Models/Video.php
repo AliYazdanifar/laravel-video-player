@@ -12,7 +12,7 @@ class Video extends Model
 
     //fields that allowed to insert
     protected $fillable = [
-        'name', 'url', 'thumbnail', 'slug', 'length', 'description'
+        'name', 'url', 'thumbnail', 'slug', 'length', 'description','category_id'
     ];
     //fields that not allowed to insert
 //    protected $guarded=[

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreVideoRequest;
 use App\Http\Requests\UpdateVideoRequest;
+use App\Models\Category;
 use App\Models\Video;
 
 class VideoController extends Controller
@@ -11,7 +12,8 @@ class VideoController extends Controller
     //show page to get video info
     public function create()
     {
-        return view('videos/create');
+        $categories=Category::all();
+        return view('videos/create',compact('categories'));
     }
     //receive form request
     public function store(StoreVideoRequest $request)
@@ -22,9 +24,7 @@ class VideoController extends Controller
 
     public function show(Video $video)
     {
-
         return view('videos.show', compact('video'));
-
     }
 
     public function edit(Video $video)
