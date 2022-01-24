@@ -6,7 +6,6 @@ use Illuminate\Validation\Rule;
 
 class UpdateVideoRequest extends StoreVideoRequest
 {
-
     public function rules()
     {
         return array_merge(parent::rules(), [

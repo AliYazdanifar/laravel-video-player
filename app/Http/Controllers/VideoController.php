@@ -5,15 +5,15 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreVideoRequest;
 use App\Http\Requests\UpdateVideoRequest;
 use App\Models\Video;
-use Illuminate\Http\Request;
 
 class VideoController extends Controller
 {
+    //show page to get video info
     public function create()
     {
         return view('videos/create');
     }
-
+    //receive form request
     public function store(StoreVideoRequest $request)
     {
         Video::create($request->all());
@@ -32,9 +32,9 @@ class VideoController extends Controller
         return view('videos.edit', compact('video'));
     }
 
-    public function update(UpdateVideoRequest $request,Video $video)
+    public function update(UpdateVideoRequest $request, Video $video)
     {
         $video->update($request->all());
-        return redirect()->route('videos.show',$video->slug)->with('alert', __('messages.video_updated'));
+        return redirect()->route('videos.show', $video->slug)->with('alert', __('messages.video_updated'));
     }
 }
