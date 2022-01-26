@@ -10,7 +10,13 @@
     <meta name="author" content="Rabie Elkheir">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css" />
+    <!--Google Fonts-->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800|Raleway:400,500,700|Roboto:300,400,500,700,900|Ubuntu:300,300i,400,400i,500,500i,700"
+        rel="stylesheet">
+    <!-- Main CSS -->
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="{{asset('css/mix.css')}}"/>
 
@@ -66,22 +72,10 @@
         </div><!-- // row -->
     </div><!-- // container-full -->
 </header><!-- // header -->
-<div id="main-category">
 
-    <div class="container-full">
-        <div class="row">
-            <div class="col-md-12">
-                <ul class="main-category-menu">
-                    <li class="color-1"><a href="02-category.html"><i class="fa fa-music"></i>موسیقی</a></li>
-                    <li class="color-2"><a href="02-category.html"><i class="fa fa-soccer-ball-o"></i>ورزشی</a></li>
-                    <li class="color-3"><a href="02-category.html"><i class="fa fa-gamepad"></i>بازی</a></li>
 
-                </ul>
-            </div><!-- // col-md-14 -->
-        </div><!-- // row -->
-    </div><!-- // container-full -->
+<x-header-menu/>
 
-</div><!-- // main-category -->
 
 @if(session("alert"))
     <div class="alert alert-success">

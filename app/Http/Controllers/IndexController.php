@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Video;
 use Illuminate\Http\Request;
 
@@ -12,8 +13,9 @@ class IndexController extends Controller
 
         $mostViewedVideos = Video::all()->random(6);
         $mostPopularVideos = Video::all()->random(6);
+        $categories=Category::all();
 
-        return view('index', compact('mostViewedVideos', 'mostPopularVideos'));
+        return view('index', compact('mostViewedVideos', 'mostPopularVideos','categories'));
 
     }
 

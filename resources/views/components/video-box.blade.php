@@ -13,8 +13,8 @@
 
             <span class="views"><i class="fa fa-eye"></i>2.8M بازدید </span>
             <span class="date"><i class="fa fa-clock-o"></i>{{$video->created_at}}</span>
-            <a href="{{route('videos.edit',$video->slug)}}" class="float-right">edit</a>
-            <span class="date"><i class="fa fa-clock-o"></i>{{$video->category_name}}</span>
+            <a href="{{route('videos.edit',$video->slug)}}" class="float-right"><i class="fa fa-pencil"></i></a>
+            <span class="date"><i class="fa fa-tag"></i>{{$video->category_name}}</span>
 
         </div>
     </div>
