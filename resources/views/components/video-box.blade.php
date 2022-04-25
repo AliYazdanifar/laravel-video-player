@@ -7,7 +7,7 @@
         </div>
         <div class="video-info">
             <a href="{{route('videos.show',$video->slug)}}" class="title">{{$video->name}}</a>
-            <a class="channel-name" href="#">مهرداد سامی<span>
+            <a class="channel-name" href="#">{{$video->user_name}}<span>
                                     <i class="fa fa-check-circle"></i></span>
             </a>
 

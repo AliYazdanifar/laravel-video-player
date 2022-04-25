@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use Hekmatinasser\Verta\Verta;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Hekmatinasser\Verta\Verta;
 
 class Video extends Model
 {
@@ -43,7 +43,6 @@ class Video extends Model
     public function relatedVideos(int $count = 6)
     {
         return $this->category->getrandomVideos($count)->except($this->id);
-//        return Video::all()->random($count);
     }
 
     public function category()
@@ -55,4 +54,19 @@ class Video extends Model
     {
         return $this->category->name;
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function getUserNameAttribute()
+    {
+        return @$this->user->name;
+    }
+    public function getUserAvatarAttribute()
+    {
+        return @$this->user->avatar;
+    }
+
 }
