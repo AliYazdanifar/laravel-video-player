@@ -2,23 +2,21 @@
 
 namespace App\Mail;
 
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
+use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Queue\SerializesModels;
 
-class VerifyEmail extends Mailable
+class VerifyEmail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
+
     public function __construct()
     {
-        //
+
     }
 
     /**
@@ -28,6 +26,13 @@ class VerifyEmail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.verify-email');
+        return $this->html((new MailMessage)
+            ->greeting("this is test")
+            ->line("line one")
+            ->line("line two")
+            ->action('test','http://google.com')
+            ->action('testtttt','http://biyabesh.ir')
+            ->render()
+        );
     }
 }

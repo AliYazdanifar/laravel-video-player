@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\CategoryVideoController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\VideoController;
+use App\Jobs\ProcessVideo;
 use App\Mail\VerifyEmail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
@@ -40,6 +40,7 @@ Route::get('/dashboard', function () {
 require __DIR__ . '/auth.php';
 
 
-Route::get('email',function (){
+Route::get('email', function () {
     Mail::to('ali.yazdani324@gmail.com')->send(new VerifyEmail());
+//    ProcessVideo::dispatch();
 });
