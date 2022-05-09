@@ -45,4 +45,13 @@ class User extends Authenticatable
     {
         return $this->hasMany(Video::class);
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function getAvatarAttribute(){
+        return 'https://s.gravatar.com/avatar/' . md5(@$this->email);
+    }
 }

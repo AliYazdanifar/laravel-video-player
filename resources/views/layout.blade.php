@@ -56,9 +56,9 @@
                     <div class="dropdown">
                         <a data-toggle="dropdown" href="#" class="user-area">
                             <div class="thumb"><img
-                                    src="https://s.gravatar.com/avatar/dfca86228f1ed5f0554827a8d907172a?s=80" alt="">
+                                    src="{{auth()->user()->avatar}}" alt="">
                             </div>
-                            <h2>مهرداد سامی</h2>
+                            <h2>{{auth()->user()->name}}</h2>
                             <h3>25 اشتراک</h3>
                             <i class="fa fa-angle-down"></i>
                         </a>
