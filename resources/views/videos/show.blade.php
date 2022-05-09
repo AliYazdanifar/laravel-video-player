@@ -1,6 +1,7 @@
 @extends('layout')
 @section('content')
     <div class="row">
+        <x-validation-errors></x-validation-errors>
         <!-- Watch -->
         <div class="col-md-8">
             <div id="watch">
@@ -50,38 +51,49 @@
                 </div>
                 <!-- // Chanels Item -->
 
+
                 <!-- Comments -->
-                <div id="comments" class="post-comments">
-                    <h3 class="post-box-title"><span>{{$video->comments->count()}}</span> نظرات</h3>
-                    <ul class="comments-list">
-                        @foreach($video->comments as $comment)
-                            <li>
-                                <div class="post_author">
-                                    <div class="img_in">
-                                        <a href="#"><img src="{{$comment->user->avatar}}" alt=""></a>
+                    <div id="comments" class="post-comments">
+                        <h3 class="post-box-title"><span>{{$video->comments->count()}}</span> نظرات</h3>
+                        <ul class="comments-list">
+                            @foreach($video->comments as $comment)
+                                <li>
+                                    <div class="post_author">
+                                        <div class="img_in">
+                                            <a href="#"><img src="{{$comment->user->avatar}}" alt=""></a>
+                                        </div>
+                                        <a href="#" class="author-name">{{$comment->user->name}}</a>
+                                        <time datetime="2017-03-24T18:18">{{$comment->created_at_in_human}}</time>
                                     </div>
-                                    <a href="#" class="author-name">{{$comment->user->name}}</a>
-                                    <time datetime="2017-03-24T18:18">{{$comment->created_at_in_human}}</time>
-                                </div>
-                                <p>{{$comment->body}}</p>
-                                <a href="#" class="reply">پاسخ</a>
+                                    <p>{{$comment->body}}</p>
+                                    <a href="#" class="reply">پاسخ</a>
 
-                            </li>
+                                </li>
 
-                        @endforeach
+                            @endforeach
 
 
-                    </ul>
+                        </ul>
 
 
-                    <h3 class="post-box-title">ارسال نظرات</h3>
-                    <form action="{{route('comment.store',$video)}}" method="post">
-                        @csrf
-                        <textarea class="form-control" rows="8" name="body" id="Message" placeholder="پیام"></textarea>
-                        <button type="submit" id="contact_submit" class="btn btn-dm">ارسال پیام</button>
-                    </form>
-                </div>
-                <!-- // Comments -->
+                        @auth()
+                        <h3 class="post-box-title">ارسال نظرات</h3>
+                        <form action="{{route('comment.store',$video)}}" method="post">
+                            @csrf
+                            <textarea class="form-control" rows="8" name="body" id="Message"
+                                      placeholder="پیام"></textarea>
+                            <button type="submit" id="contact_submit" class="btn btn-dm">ارسال پیام</button>
+                        </form>
+                            @endauth
+                        @guest()
+                            <div class="alert alert-info">
+                                <span>برای ثبت نظر ابتدا باید وارد شوید</span>
+                                <a class="btn btn-primary" href="{{route('login')}}">ورود</a>
+                            </div>
+                        @endguest
+                    </div>
+                    <!-- // Comments -->
+
 
 
             </div><!-- // watch -->

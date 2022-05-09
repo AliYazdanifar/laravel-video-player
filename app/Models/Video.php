@@ -68,7 +68,7 @@ class Video extends Model
 
     public function getUserAvatarAttribute()
     {
-        return $this->user->avatar;
+        return 'https://s.gravatar.com/avatar/' . md5($this->user->email);
     }
 
     public function comments()
