@@ -62,6 +62,7 @@ class Video extends Model
 
     public function getUserNameAttribute()
     {
+
         return @$this->user->name;
     }
 
@@ -70,7 +71,9 @@ class Video extends Model
         return $this->user->avatar;
     }
 
-    public function comments(){
-        return $this->hasMany(Comment::class);
+    public function comments()
+    {
+        return $this->hasMany(Comment::class)
+            ->orderBy('created_at', 'desc');
     }
 }

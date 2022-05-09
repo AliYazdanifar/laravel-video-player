@@ -15,7 +15,7 @@ class RelatedVideos extends Component
      */
     public function __construct(Video $video)
     {
-        $this->videos=$video->relatedVideos();
+        $this->videos=$video->relatedVideos(10)->load('user');
     }
 
     /**
@@ -23,6 +23,7 @@ class RelatedVideos extends Component
      *
      * @return \Illuminate\Contracts\View\View|\Closure|string
      */
+
     public function render()
     {
         return view('components.related-videos');
