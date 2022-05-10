@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Traits\Likeable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Hekmatinasser\Verta\Verta;
@@ -9,7 +10,7 @@ use Hekmatinasser\Verta\Verta;
 
 class Comment extends Model
 {
-    use HasFactory;
+    use HasFactory,Likeable;
 
     protected $fillable=[
         'user_id','body'
@@ -29,5 +30,6 @@ class Comment extends Model
         return (new Verta($this->created_at))->formatDifference();
 
     }
+
 
 }
