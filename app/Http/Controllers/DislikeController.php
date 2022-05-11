@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class LikeController extends Controller
+class DislikeController extends Controller
 {
-
     public function store(Request $request, string $likeable_type, $likeable_id)
     {
-        $likeable_id->likedBy(auth()->user());
+        $likeable_id->dislikedBy(auth()->user());
+        return back();
+
         return back();
     }
-
 }

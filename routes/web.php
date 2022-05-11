@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\CategoryVideoController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\DislikeController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\VideoController;
 use App\Mail\VerifyEmail;
 use Illuminate\Support\Facades\Mail;
@@ -47,3 +49,16 @@ Route::get('email', function () {
 
 Route::post('videos/{video}/comments', [CommentController::class, 'store'])
     ->name('comment.store');
+
+
+//Route::get('{likeable_type}/{likeable_id}/like',[LikeController::class,'store'])
+//    ->middleware('auth')
+//    ->name('likes.store');
+//
+//Route::get('{likeable_type}/{likeable_id}/like',[DislikeController::class,'store'])
+//    ->middleware('auth')
+//    ->name('dislikes.store');
+Route::post('/videos/{video}/comments', [CommentController::class, 'store'])->name('comments.store');
+Route::get('{likeable_type}/{likeable_id}/like', [LikeController::class, 'store'])->name('likes.store');
+Route::get('{likeable_type}/{likeable_id}/dislike', [DislikeController::class, 'store'])->name('dislikes.store');
+
